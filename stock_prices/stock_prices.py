@@ -9,9 +9,9 @@ def find_max_profit(prices):
   # largest gain is first sell - first buy
     largest_gain = prices[1] - prices[0]
     # filter through prices
-    for i in range(0, len(prices) - 1):
+    for i in range(0, len(prices)):
       # filter through range with i + 1 as starting index
-      for j in range(i + 1, len(prices) - 1):
+      for j in range(i + 1, len(prices)):
         # if prices in j loop - prices in i loop is greater than largest_gain...
         if prices[j] - prices[i] > largest_gain:
           # set largest_gain to that number
