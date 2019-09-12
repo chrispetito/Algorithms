@@ -10,16 +10,25 @@ def recipe_batches(recipe, ingredients):
   # determine whether or not all ingredients are present
   if len(recipe) != len(ingredients):
     return 0
+  # for key in recipe and ingredients...
   for k in recipe and ingredients:
+    # if the length of recipe and ingredients is 1...
     if len(recipe) == 1 and len(ingredients) == 1:
+      # number of batches == ingredient value/recipe value
       total_number_batches = round(ingredients[k]/recipe[k])
+    # if there aren't enough ingredients in one value...
     if recipe[k] > ingredients[k]:
+      # total batches == 0
       total_number_batches = 0
+    # if there are more or just enough ingredients...
     if recipe[k] < ingredients[k] or recipe[k] == ingredients[k]:
+        # result is first division
         result = ingredients[k]/recipe[k]
         for key in recipe and ingredients:
+          # check to see if any subsequent division are less than result to determine minimum amount of batches...
           if ingredients[key]/recipe[key] < result:
             result = ingredients[key]/recipe[key]
+            # and return the rounded result as total number of batches
             total_number_batches = round(result)
   return total_number_batches
 
