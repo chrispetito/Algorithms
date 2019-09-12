@@ -11,7 +11,7 @@ def recipe_batches(recipe, ingredients):
   if len(recipe) != len(ingredients):
     return 0
   # for key in recipe and ingredients...
-  for k in recipe and ingredients:
+  for k in recipe:
     # if the length of recipe and ingredients is 1...
     if len(recipe) == 1 and len(ingredients) == 1:
       # number of batches == ingredient value/recipe value
