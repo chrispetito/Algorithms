@@ -8,6 +8,8 @@ import sys
 
 cookies = 10
 
+cache = {0: 0, 1: 1}
+
 def eating_cookies(n, cache=None):
   if n == 0:
     return 1
@@ -15,8 +17,12 @@ def eating_cookies(n, cache=None):
     return 1
   if n == 2:
     return 2
+  elif cache is not None and n in cache:
+    return cache[n]
   else:
     result = eating_cookies(n-3) + eating_cookies(n-2) + eating_cookies(n-1)
+    if cache is not None:
+      cache[n] = result
     return result
   
 
